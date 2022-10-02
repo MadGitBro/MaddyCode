@@ -1,39 +1,53 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
+
+void Swap(std::vector<int>& _in, int _a, int _b)
+{
+	int a = _in[_a];
+	int b = _in[_b];
+	_in[_a] = b;
+	_in[_b] = a;
+}
 
 int main()
 {
 	std::cout << "Hello Maddy, this is standard output to the console \n";
 	std::cout << "We use \\n for writing new lines, which puts text on the next line.";
 
-	std::vector<int> anArray = { 5,7,2,12,4,55 };
+	std::vector<int> input = { 5, 3, 2, 7 };
+	Swap(input, 0, 3);
 
-	bool a = Eval(-1, anArray);
-	bool b = rEval(-1, anArray);
+	std::vector<int> sortedList = input;
+	std::sort(sortedList.begin(), sortedList.end());
+
+	std::vector<int> output = {};
+
+	// 4, 9, 3, 1
+
+	// find lowest number
+
+	// move to index 0
+
+	// find the next lowest
+
+	// move to index 1
+
+	// loop until...  index = end
+
+	// end-1 = 2
+
+	// 4 9 3 1
+	// swap
+	// 1 9 3 4
+	// swap
+	// 1 3 9 4
+	// swap
+	// 1 3 4 9
 
 
-	for (int i = 0; i < anArray.size(); i++)
-	{
-		std::cout << "Array Index [" << i << "] -> " << anArray[i] << "\n";
-	}
 
-	std::cout << "Hello\n";
-
-	std::cout << anArray[0] ;
-	std::cout << "\n";
-	std::cout << anArray [5] ;
-	std::cout << "\n";
-	std::cout << anArray[0] + anArray[5] ;
-	
-
-	//   Start       while              increment
-	for (int i = 5; i > -1 ;  i--)
-	{
-		std::cout << "Array Index [" << i << "] -> " << anArray[i] << "\n";
-	}
-	
-	std::cout << "Hello?\n";
 
 	return 0;
 }
