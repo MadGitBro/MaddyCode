@@ -3,7 +3,7 @@
 #include <algorithm>
 
 
-void Swap(std::vector<int>& _in, int _a, int _b)
+void swap(std::vector<int>& _in, int _a, int _b)
 {
 	int a = _in[_a];
 	int b = _in[_b];
@@ -14,41 +14,87 @@ void Swap(std::vector<int>& _in, int _a, int _b)
 int main()
 {
 	std::cout << "Hello Maddy, this is standard output to the console \n";
-	std::cout << "We use \\n for writing new lines, which puts text on the next line.";
+	std::cout << "We use \\n for writing new lines, which puts text on the next line.\n\n";
 
-	std::vector<int> input = { 5, 3, 2, 7 };
-	Swap(input, 0, 3);
 
-	std::vector<int> sortedList = input;
+
+	std::vector<int> array_ = { 0,1,3,4,5,6,2,7,8,9,10 };
+
+
+	std::vector<int> sortedList = array_;
 	std::sort(sortedList.begin(), sortedList.end());
 
 	std::vector<int> output = {};
 
-	// 4, 9, 3, 1
+	//here.
 
-	// find lowest number
+	for (int i = 0; i < array_.size() - 1; i++)
+	{
+		int j = i + 1;
+		if (array_[j] < array_[i])
+		{
+			//place number where it belongs
+			while (array_[j] < array_[j-1])
+			{
+				swap(array_, j, j - 1);
+				j--;
+			}
+		}
+			
+	}
 
-	// move to index 0
 
-	// find the next lowest
 
-	// move to index 1
 
-	// loop until...  index = end
+	//for (int i = 0; i < array_.size() - 1; i++)
+	//{
+	//		int smallestnumber = array_[i];
+	//		int smallestindex = i;
+	//
+	//		for (int j = i + 1; j < array_.size(); j++)
+	//		{
+	//			if (array_[j] < smallestnumber)
+	//			{
+	//				smallestnumber = array_[j];
+	//				smallestindex = j;
+	//			}
+	//		}
+	//		swap(array_,  i, smallestindex);
+	//}
 
-	// end-1 = 2
-
-	// 4 9 3 1
-	// swap
-	// 1 9 3 4
-	// swap
-	// 1 3 9 4
-	// swap
-	// 1 3 4 9
-
+	for (auto num : array_)
+	{
+		std::cout << num << ",";
+	}
+	std::cout << "\n";
 
 
 
 	return 0;
 }
 
+
+
+
+
+
+// init       ; condition           ; increment
+//for (int i = 0; i < array_.size() - 1; i++)
+//{
+//					// Find the smallest number
+//					int smallestSeen = array_[i];
+//					int smallestIndex = i;
+//					for (int j = i+1; j < array_.size(); j++)
+//					{
+//									int currentValue = array_[j];
+//									if (currentValue < smallestSeen)
+//									{
+//										smallestSeen = currentValue;
+//										smallestIndex = j;
+//									}
+//					}
+//
+//					// Swap the smallest with the next index
+//					//   array input, location a, location b
+//					Swap(array_,);
+//}
