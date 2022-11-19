@@ -13,11 +13,15 @@ void swap(std::vector<int>& _in, int _a, int _b)
 
 //return = whites value into memory address. think bidmas
 
+// void doesn't return anything. vector for lists.
+
 int maddyadd(int _a, int _b)
 {
 	int result = _a + _b;
 	return result;
 }
+
+
 
 void maddyprint(std::vector<int> array_)
 {
@@ -37,7 +41,7 @@ std::vector<int> maddysort(std::vector<int> array_)
 		int j = i + 1;
 		if (array_[j] < array_[i])
 		{
-			while (array_[j] < array_[j - 1] )
+			while (array_[j] < array_[j - 1])
 			{
 				swap(array_, j, j - 1);
 				j--;
@@ -52,17 +56,88 @@ std::vector<int> maddysort(std::vector<int> array_)
 }
 
 
+std::vector<int> maddysortprint(int a, int b)
+{
+	std::vector<int> newestlist;
+	newestlist.push_back(a);
+	if (a < b)
+	{
+		for (int j = a + 1; j <= b; j++)
+		{
+			newestlist.push_back(j);
+		}
+	}
+	else
+	{
+		for (int j = a - 1; j >= b; j--)
+		{
+			newestlist.push_back(j);
+		}
+	}
+	return newestlist;
+}
 
 
+//std::vector<int> maddyfib(int n)
+//{
+	//std::vector<int> fiblist;
+	//fiblist.push_back(a);
+	//for (int x = a + 1; x <= b; x++)
+	//{
+		//int result = a + x;
+		//fiblist.push_back(result);
+	//}
+	//a++;
+	//return fiblist;
+//}
+
+int findnextfib(int a, int b)
+{
+	int resultat = a + b;
+	return resultat;
+}
+
+std::vector<int> maddyfib(int n)
+{
+	std::vector<int> fiblist;
+	fiblist.push_back(0);
+	fiblist.push_back(1);
+	while (fiblist.size()<n)
+	{
+		int nextnum = findnextfib(fiblist[fiblist.size()-1], fiblist[fiblist.size()-2]);
+			fiblist.push_back(nextnum);
+	}
+	return fiblist;
+}
 
 
 int main()
 {
 
+	std::vector<int> fiblist = maddyfib(100);
+	maddyprint(fiblist);
+	
+	std::vector<int> maddylistres = maddysortprint(10, 0);
+	maddyprint(maddylistres);
+
+
 	std::vector<int> arrray_ = { 5,2,7,0,1 };
 	std::vector<int> sortedlist = maddysort(arrray_);
 	maddyprint(sortedlist);
 
+	std::vector<int> newlist;
+	newlist.push_back(0);
+	newlist.push_back(1);
+	newlist.push_back(2);
+	newlist.push_back(3);
+	maddyprint(newlist);
+
+	std::vector<int> newnewlist;
+	for (int i = 0; i < 1001; i++)
+	{
+		newnewlist.push_back(i);
+	}
+	maddyprint(newnewlist);
 
 	std::cout << "Hello Maddy, this is standard output to the console \n";
 	std::cout << "We use \\n for writing new lines, which puts text on the next line.\n\n";
